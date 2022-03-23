@@ -46,8 +46,8 @@ public class JavaGUI extends JFrame implements KeyListener {
         packButton1 = new JButton();
         packButton2 = new JButton();
 
-        packButton1.setPreferredSize(new Dimension(350, 500));
-        packButton2.setPreferredSize(new Dimension(350, 500));
+        packButton1.setPreferredSize(new Dimension(300, 470));
+        packButton2.setPreferredSize(new Dimension(300, 470));
 
         packButton1.add(new JLabel(icon1));
         packButton2.add(new JLabel(icon2));
@@ -62,7 +62,6 @@ public class JavaGUI extends JFrame implements KeyListener {
 
         this.add(panelTop, BorderLayout.NORTH);
         this.add(panelMiddle, BorderLayout.CENTER);
-        this.add(panelBottom, BorderLayout.SOUTH);
         this.setVisible(true);
 
     }
