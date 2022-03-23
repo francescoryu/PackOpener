@@ -1,18 +1,28 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class JavaGUI extends JFrame implements KeyListener {
 
-    JPanel panelTop;
-    JPanel panelMiddle;
-    JPanel panelBottom;
     JLabel title;
-    JButton exitButton;
+    JLabel balance;
+
+    JPanel panelTop;
+    JPanel panelRight;
+    JPanel panelBottom;
+    JPanel panelLeft;
     JPanel packsPanel;
+    JPanel panelCenter;
+
+    JButton exitButton;
     JButton packButton1;
     JButton packButton2;
+
+    int fifaPoints;
 
     public JavaGUI() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
 
@@ -25,15 +35,28 @@ public class JavaGUI extends JFrame implements KeyListener {
         this.setUndecorated(true);
 
         panelTop = new JPanel();
-        panelMiddle = new JPanel();
+        panelRight = new JPanel();
         panelBottom = new JPanel();
+        panelLeft = new JPanel();
+        panelCenter = new JPanel();
+
         title = new JLabel();
         title = new JLabel("FIFA Pack Opener");
-        title.setFont(new Font("Serif", Font.PLAIN, 40));
+        title.setFont(new Font("Serif", Font.BOLD, 80));
+
         exitButton = new JButton("Exit");
         exitButton.addActionListener(e -> System.exit(0));
+        exitButton.setBackground(Color.decode("#9164ed"));
+        exitButton.addMouseListener(new CustomMouseListener());
         exitButton.setFont(new Font("Serif", Font.PLAIN, 60));
+        exitButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
+
         packsPanel = new JPanel();
+
+        balance = new JLabel();
+        balance.setText("Your Balance: " + fifaPoints + "\n");
+        balance.setFont(new Font("Serif", Font.PLAIN, 30));
+        panelCenter.add(balance);
 
         panelTop.add(title);
         panelBottom.add(exitButton);
@@ -43,25 +66,33 @@ public class JavaGUI extends JFrame implements KeyListener {
 
         packButton1 = new JButton();
         packButton2 = new JButton();
-
         packButton1.setPreferredSize(new Dimension(300, 470));
         packButton2.setPreferredSize(new Dimension(300, 470));
-
+        packButton1.setBackground(Color.decode("#aa8aeb"));
+        packButton2.setBackground(Color.decode("#aa8aeb"));
         packButton1.add(new JLabel(icon1));
         packButton2.add(new JLabel(icon2));
+        packButton1.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
+        packButton2.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
+        packButton1.addMouseListener(new CustomMouseListener());
+        packButton2.addMouseListener(new CustomMouseListener());
 
         packsPanel.add(packButton1);
         packsPanel.add(packButton2);
 
-       /* panelTop.setBackground(Color.GRAY);
-        panelMiddle.setBackground(Color.RED);
-        panelBottom.setBackground(Color.BLUE);*/
+        packsPanel.setBackground(Color.decode("#7134eb"));
+        panelTop.setBackground(Color.decode("#7134eb"));
+        panelRight.setBackground(Color.decode("#7134eb"));
+        panelBottom.setBackground(Color.decode("#7134eb"));
+        panelLeft.setBackground(Color.decode("#7134eb"));
 
 
         this.add(panelTop, BorderLayout.NORTH);
-        panelMiddle.add(packsPanel, BorderLayout.CENTER);
-        this.add(panelMiddle, BorderLayout.CENTER);
+        panelRight.add(packsPanel, BorderLayout.CENTER);
+        this.add(panelRight, BorderLayout.EAST);
         this.add(panelBottom, BorderLayout.SOUTH);
+        this.add(panelLeft, BorderLayout.WEST);
+        this.add(panelCenter, BorderLayout.CENTER);
         this.setVisible(true);
 
     }
