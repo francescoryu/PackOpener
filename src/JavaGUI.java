@@ -60,6 +60,9 @@ public class JavaGUI extends JFrame implements KeyListener {
         panelBottom.setBackground(Color.BLUE);
 
 
+
+        //TEST
+
         this.add(panelTop, BorderLayout.NORTH);
         this.add(panelMiddle, BorderLayout.CENTER);
         this.setVisible(true);
