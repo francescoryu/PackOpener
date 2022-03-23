@@ -10,7 +10,6 @@ public class JavaGUI extends JFrame implements KeyListener {
     JPanel panelBottom;
     JLabel title;
     JButton exitButton;
-    JButton openPackButton;
     JPanel packsPanel;
     JButton packButton1;
     JButton packButton2;
@@ -32,13 +31,12 @@ public class JavaGUI extends JFrame implements KeyListener {
         title = new JLabel("FIFA Pack Opener");
         title.setFont(new Font("Serif", Font.PLAIN, 40));
         exitButton = new JButton("Exit");
-        openPackButton = new JButton("Open Pack");
         exitButton.addActionListener(e -> System.exit(0));
+        exitButton.setFont(new Font("Serif", Font.PLAIN, 60));
         packsPanel = new JPanel();
 
         panelTop.add(title);
         panelBottom.add(exitButton);
-        panelBottom.add(openPackButton);
 
         ImageIcon icon1 = new ImageIcon("pack1.png");
         ImageIcon icon2 = new ImageIcon("pack2.png");
@@ -52,19 +50,18 @@ public class JavaGUI extends JFrame implements KeyListener {
         packButton1.add(new JLabel(icon1));
         packButton2.add(new JLabel(icon2));
 
-        panelMiddle.add(packButton1);
-        panelMiddle.add(packButton2);
+        packsPanel.add(packButton1);
+        packsPanel.add(packButton2);
 
-        panelTop.setBackground(Color.GRAY);
+       /* panelTop.setBackground(Color.GRAY);
         panelMiddle.setBackground(Color.RED);
-        panelBottom.setBackground(Color.BLUE);
+        panelBottom.setBackground(Color.BLUE);*/
 
-
-
-        //TEST//TTT
 
         this.add(panelTop, BorderLayout.NORTH);
+        panelMiddle.add(packsPanel, BorderLayout.CENTER);
         this.add(panelMiddle, BorderLayout.CENTER);
+        this.add(panelBottom, BorderLayout.SOUTH);
         this.setVisible(true);
 
     }
