@@ -61,7 +61,7 @@ public class JavaGUI extends JFrame implements KeyListener {
 
 
 
-        //TEST
+        //TEST//TTT
 
         this.add(panelTop, BorderLayout.NORTH);
         this.add(panelMiddle, BorderLayout.CENTER);
