@@ -10,6 +10,7 @@ public class JavaGUI extends JFrame implements KeyListener {
 
     JLabel title;
     JLabel balance;
+    JTextField fifaPointsAmount;
 
     JPanel panelTop;
     JPanel panelRight;
@@ -21,6 +22,7 @@ public class JavaGUI extends JFrame implements KeyListener {
     JButton exitButton;
     JButton packButton1;
     JButton packButton2;
+    JButton buyFifaPoints;
 
     int fifaPoints;
 
@@ -51,12 +53,28 @@ public class JavaGUI extends JFrame implements KeyListener {
         exitButton.setFont(new Font("Serif", Font.PLAIN, 60));
         exitButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
 
+        buyFifaPoints = new JButton("Buy Points");
+
         packsPanel = new JPanel();
 
         balance = new JLabel();
-        balance.setText("Your Balance: " + fifaPoints + "\n");
+        balance.setText("Your Balance: " + fifaPoints);
         balance.setFont(new Font("Serif", Font.PLAIN, 30));
         panelCenter.add(balance);
+
+        fifaPointsAmount = new JTextField();
+        fifaPointsAmount.setColumns(10);
+        fifaPointsAmount.setFont(new Font("Serif", Font.PLAIN, 30));
+        panelCenter.add(fifaPointsAmount);
+
+        buyFifaPoints.addMouseListener(new CustomMouseListener());
+        buyFifaPoints.setFont(new Font("Serif", Font.PLAIN, 30));
+        buyFifaPoints.setBackground(Color.decode("#9164ed"));
+        buyFifaPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
+
+        panelCenter.add(buyFifaPoints);
+
+
 
         panelTop.add(title);
         panelBottom.add(exitButton);
