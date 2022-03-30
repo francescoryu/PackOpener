@@ -5,12 +5,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class JavaGUI extends JFrame implements KeyListener {
 
     JLabel title;
     JLabel balance;
-    JTextField fifaPointsAmount;
 
     JPanel panelTop;
     JPanel panelRight;
@@ -51,29 +51,31 @@ public class JavaGUI extends JFrame implements KeyListener {
         exitButton.setBackground(Color.decode("#9164ed"));
         exitButton.addMouseListener(new CustomMouseListener());
         exitButton.setFont(new Font("Serif", Font.PLAIN, 60));
-        exitButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
-
-        buyFifaPoints = new JButton("Buy Points");
+        exitButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
 
         packsPanel = new JPanel();
+
+        BoxLayout boxlayout = new BoxLayout(panelCenter, BoxLayout.Y_AXIS);
+        panelCenter.setLayout(boxlayout);
 
         balance = new JLabel();
         balance.setText("Your Balance: " + fifaPoints);
         balance.setFont(new Font("Serif", Font.PLAIN, 30));
         panelCenter.add(balance);
 
-        fifaPointsAmount = new JTextField();
-        fifaPointsAmount.setColumns(10);
-        fifaPointsAmount.setFont(new Font("Serif", Font.PLAIN, 30));
-        panelCenter.add(fifaPointsAmount);
-
-        buyFifaPoints.addMouseListener(new CustomMouseListener());
-        buyFifaPoints.setFont(new Font("Serif", Font.PLAIN, 30));
-        buyFifaPoints.setBackground(Color.decode("#9164ed"));
-        buyFifaPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
-
-        panelCenter.add(buyFifaPoints);
-
+        JButton[] buttons = new JButton[7];
+        for (JButton button : buttons) {
+            button = new JButton();
+            button.addMouseListener(new CustomMouseListener());
+            button = new JButton();
+            button.setText(" 100FP ");
+            button.addMouseListener(new CustomMouseListener());
+            button.setFont(new Font("Serif", Font.PLAIN, 30));
+            button.setBackground(Color.decode("#9164ed"));
+            button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+            panelCenter.add(button);
+        }
+        
 
 
         panelTop.add(title);
@@ -90,8 +92,8 @@ public class JavaGUI extends JFrame implements KeyListener {
         packButton2.setBackground(Color.decode("#aa8aeb"));
         packButton1.add(new JLabel(icon1));
         packButton2.add(new JLabel(icon2));
-        packButton1.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
-        packButton2.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
+        packButton1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+        packButton2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
         packButton1.addMouseListener(new CustomMouseListener());
         packButton2.addMouseListener(new CustomMouseListener());
 
